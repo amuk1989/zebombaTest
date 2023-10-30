@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Pendulum.Models
 {
-    public class PendulumModel:IInitializable, IDisposable
+    public class PendulumModel:IDisposable
     {
         private readonly PendulumConfig _config;
         
@@ -21,7 +21,7 @@ namespace Pendulum.Models
 
         public IObservable<Quaternion> RotationAsObservable() => _rotation.AsObservable();
 
-        public void Initialize()
+        public void StartMoving()
         {
             var startAngle = 0 - _config.RangeAngle / 2f;
             var stopAngle = _config.RangeAngle / 2f;

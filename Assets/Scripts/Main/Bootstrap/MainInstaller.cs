@@ -8,6 +8,7 @@ namespace Main.Bootstrap
         public override void InstallBindings()
         {
             Container.Install<PendulumInstaller>();
+            Container.Install<InputInstaller>();
         }
     }
 }
