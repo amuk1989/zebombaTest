@@ -2,10 +2,13 @@
 using Pendulum.Models;
 using UniRx;
 
-public class CircleRepository
+namespace Pendulum.Repositories
 {
-    private readonly ReactiveCollection<CircleModel> _models = new();
+    public class CircleRepository
+    {
+        private readonly ReactiveCollection<CircleModel> _models = new();
 
-    public IObservable<CircleModel> ModdelAddedAsRX() => _models.ObserveAdd.AsObservable();
+        public IObservable<CircleModel> ModelAddedAsRx() => _models.ObserveAdd().Select(x => x.Value).AsObservable();
+    }
 }
 

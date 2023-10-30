@@ -1,4 +1,5 @@
-﻿using Pendulum.Bootstrap;
+﻿using Input;
+using Pendulum.Bootstrap;
 using Zenject;
 
 namespace Main.Bootstrap

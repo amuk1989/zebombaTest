@@ -1,5 +1,11 @@
 ﻿using System;
-public interface NewInterface
+using UnityEngine;
+
+namespace Input.Interfaces
 {
+    public interface IInputProvider
+    {
+        public IObservable<Vector3> ClickAsObservable();
+    }
 }
 

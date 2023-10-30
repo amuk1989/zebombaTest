@@ -1,5 +1,8 @@
 ﻿using Pendulum.Controllers;
+using Pendulum.Factories;
 using Pendulum.Models;
+using Pendulum.Repositories;
+using Pendulum.Views;
 using Zenject;
 
 namespace Pendulum.Bootstrap
@@ -17,6 +20,23 @@ namespace Pendulum.Bootstrap
                 .BindInterfacesAndSelfTo<PendulumController>()
                 .AsSingle()
                 .NonLazy();
+            
+            Container
+                .BindInterfacesAndSelfTo<CircleViewsRepository>()
+                .AsSingle()
+                .NonLazy();
+            
+            Container
+                .BindInterfacesAndSelfTo<CircleRepository>()
+                .AsSingle()
+                .NonLazy();
+
+            Container
+                .BindFactory<CircleModel, CircleView, CircleView.Factory>()
+                .FromFactory<CircleViewFactory>();
+
+            Container
+                .BindFactory<CircleModel, CircleModel.Factory>();
         }
     }
 }
