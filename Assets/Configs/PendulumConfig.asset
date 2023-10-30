@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 403f028917e54ebab467cc450174a2fe, type: 3}
   m_Name: PendulumConfig
   m_EditorClassIdentifier: 
-  _rangeAngle: 30
-  _maxSpeed: 2
+  _rangeAngle: 45
+  _maxSpeed: 50
   _minSpeed: 1
