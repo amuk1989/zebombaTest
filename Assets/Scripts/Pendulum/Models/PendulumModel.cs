@@ -25,7 +25,7 @@ namespace Pendulum.Models
         {
             var startAngle = 0 - _config.RangeAngle / 2f;
             var stopAngle = _config.RangeAngle / 2f;
-            var currentAngle = startAngle;
+            var currentAngle = 0f;
             var direction = 1f;
             
             _movingFlow = Observable

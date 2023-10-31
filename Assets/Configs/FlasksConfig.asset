@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8aecf6cfcb5245548bfb20a1b43ec3ca, type: 3}
-  m_Name: GameStageConfig
+  m_Script: {fileID: 11500000, guid: ff8daec7596547ae9dc39bd17155e459, type: 3}
+  m_Name: FlasksConfig
   m_EditorClassIdentifier: 
-  _gameStageIds: 0100000002000000
+  flasksPrefab: {fileID: 3352332219059925718, guid: 4ec6e0701524ed7489c5c3e5d3b081ab, type: 3}

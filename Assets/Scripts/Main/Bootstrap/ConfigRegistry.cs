@@ -1,4 +1,5 @@
-﻿using GameStage.Bootstrap;
+﻿using Flasks;
+using GameStage.Bootstrap;
 using GameStage.Controllers;
 using Pendulum.Bootstrap;
 using Pendulum.Configs;
@@ -15,12 +16,14 @@ namespace Main.Bootstrap
         [SerializeField] private PendulumConfig _pendulumConfig;
         [SerializeField] private CircleConfig _circleConfig;
         [SerializeField] private GameStageConfig _gameStageConfig;
+        [SerializeField] private FlasksConfig _flasksConfig;
 
         public override void InstallBindings()
         {
             Container.InstallRegistry(_pendulumConfig);
             Container.InstallRegistry(_circleConfig);
             Container.InstallRegistry(_gameStageConfig);
+            Container.InstallRegistry(_flasksConfig);
         }
     }
 }
