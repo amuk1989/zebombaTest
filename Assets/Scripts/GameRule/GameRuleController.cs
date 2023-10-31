@@ -53,6 +53,8 @@ namespace Circle
             _compositeDisposable?.Dispose();
         }
 
+        public IObservable<Unit> GameOverAsRx() => _gameOver.AsObservable();
+
         private void Registry(CircleModel model)
         {
             _circlesInMatrix.Add(model.Id);

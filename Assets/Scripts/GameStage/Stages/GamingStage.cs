@@ -1,7 +1,9 @@
-﻿using Circle;
+﻿using System;
+using Circle;
 using Flasks;
 using GameStage.Interfaces;
 using Pendulum.Controllers;
+using UniRx;
 
 namespace GameStage.Stages
 {
@@ -10,13 +12,20 @@ namespace GameStage.Stages
         private readonly PendulumController _pendulumController;
         private readonly CircleController _circleController;
         private readonly FlasksController _flasksController;
+        private readonly GameRuleController _gameRuleController;
 
         public GamingStage(PendulumController pendulumController, CircleController circleController, 
-            FlasksController flasksController)
+            FlasksController flasksController, GameRuleController controller)
         {
             _pendulumController = pendulumController;
             _circleController = circleController;
             _flasksController = flasksController;
+            _gameRuleController = controller;
+        }
+
+        public IObservable<Unit> StageCompletedAsRx()
+        {
+            return _gameRuleController.GameOverAsRx();
         }
 
         public void Execute()

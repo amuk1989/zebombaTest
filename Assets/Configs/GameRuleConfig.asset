@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: GameRuleConfig
   m_EditorClassIdentifier: 
   _circlesCountInLine: 3
+  _maxCircles: 9
