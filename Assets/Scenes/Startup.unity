@@ -705,6 +705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _circlePosition: {fileID: 165938872}
+  _circleRenderer: {fileID: 165938873}
 --- !u!1 &972406017
 GameObject:
   m_ObjectHideFlags: 0

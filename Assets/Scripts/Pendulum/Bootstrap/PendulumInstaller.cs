@@ -42,7 +42,7 @@ namespace Pendulum.Bootstrap
                 .FromFactory<CircleViewFactory>();
 
             Container
-                .BindFactory<Vector3, CircleModel, CircleModel.Factory>();
+                .BindFactory<Vector3, Color, CircleModel, CircleModel.Factory>();
         }
     }
 }

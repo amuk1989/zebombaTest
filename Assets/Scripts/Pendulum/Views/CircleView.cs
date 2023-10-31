@@ -13,6 +13,8 @@ namespace Pendulum.Views
             
         }
 
+        [SerializeField] private SpriteRenderer _spriteRenderer;
+
         private CircleModel _model;
 
         [Inject]
@@ -23,6 +25,9 @@ namespace Pendulum.Views
 
         private void Start()
         {
+            transform.position = _model.StartPosition;
+            _spriteRenderer.color = _model.Color;
+            
             _model
                 .OnDestroyedAsRx()
                 .Subscribe(_ => Dispose())

@@ -18,9 +18,9 @@ namespace Pendulum.Repositories
 
         public IObservable<CircleModel> ModelAddedAsRx() => _models.ObserveAdd().Select(x => x.Value).AsObservable();
 
-        public void CreateModel(Vector3 position)
+        public void CreateModel(Vector3 position, Color color)
         {
-            _models.Add(_circleFactory.Create(position));
+            _models.Add(_circleFactory.Create(position, color));
         }
     }
 }

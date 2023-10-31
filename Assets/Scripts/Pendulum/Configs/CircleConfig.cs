@@ -7,7 +7,9 @@ namespace Pendulum.Configs
     public class CircleConfig : ScriptableObject
     {
         [SerializeField] private CircleView _circlePrefab;
+        [SerializeField] private Color[] _colorsVariations;
 
         public CircleView CirclePrefab => _circlePrefab;
+        public Color[] ColorsVariations => _colorsVariations;
     }
 }

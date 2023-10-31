@@ -10,6 +10,7 @@ namespace Pendulum.Views
     public class PendulumView : MonoBehaviour
     {
         [SerializeField] private Transform _circlePosition;
+        [SerializeField] private SpriteRenderer _circleRenderer;
         
         private PendulumModel _model;
         private CircleController _circleController;
@@ -23,11 +24,16 @@ namespace Pendulum.Views
 
         private void Start()
         {
-            _circleController.SetSpawnTransform(transform);
+            _circleController.SetSpawnTransform(_circlePosition);
             
             _model
                 .RotationAsObservable()
                 .Subscribe(value => transform.rotation = value)
+                .AddTo(this);
+
+            _circleController
+                .NextColorAsRx()
+                .Subscribe(color => _circleRenderer.color = color)
                 .AddTo(this);
         }
     }

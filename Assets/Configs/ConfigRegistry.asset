@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: ConfigRegistry
   m_EditorClassIdentifier: 
   _pendulumConfig: {fileID: 11400000, guid: 759d2f1f1b701eb439167699f58d6fca, type: 2}
+  _circleConfig: {fileID: 11400000, guid: 07d5f632626d7ce4ebeeba19dcbfe8af, type: 2}

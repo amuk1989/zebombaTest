@@ -1,4 +1,5 @@
 ﻿using System;
+using Pendulum.Views;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -10,10 +11,12 @@ namespace Pendulum.Configs
         [Range(0f, 90f)][SerializeField] private float _rangeAngle;
         [SerializeField] private float _maxSpeed;
         [SerializeField] private float _minSpeed;
+        [SerializeField] private PendulumView _pendulumPrefab;
 
         public float RangeAngle => _rangeAngle;
         public float MaxSpeed => _maxSpeed;
         public float MinSpeed => _minSpeed;
+        public PendulumView PendulumPrefab => _pendulumPrefab;
 
         private void OnValidate()
         {
