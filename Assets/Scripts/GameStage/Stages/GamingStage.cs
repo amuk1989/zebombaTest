@@ -7,7 +7,13 @@ namespace GameStage.Stages
     {
         private readonly PendulumController _pendulumController;
         private readonly CircleController _circleController;
-        
+
+        public GamingStage(PendulumController pendulumController, CircleController circleController)
+        {
+            _pendulumController = pendulumController;
+            _circleController = circleController;
+        }
+
         public void Execute()
         {
             _pendulumController.StartMoving();
@@ -16,7 +22,8 @@ namespace GameStage.Stages
 
         public void Complete()
         {
-            
+            _pendulumController.StopMoving();
+            _circleController.StopSpawnFlow();
         }
     }
 }

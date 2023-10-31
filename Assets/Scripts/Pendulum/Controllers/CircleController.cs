@@ -35,7 +35,6 @@ namespace Pendulum.Controllers
 
         public void Initialize()
         {
-            // StartSpawnFlow();
         }
 
         public void StartSpawnFlow()

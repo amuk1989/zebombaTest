@@ -19,11 +19,12 @@ namespace Input
 
         public void Initialize()
         {
-            StartInputFlow();
         }
 
         public void StartInputFlow()
         {
+            StopInputFlow();
+            
             _inputFlow = Observable
                 .EveryUpdate()
                 .Subscribe(_ =>

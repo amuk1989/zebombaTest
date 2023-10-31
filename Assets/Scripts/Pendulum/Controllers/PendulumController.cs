@@ -14,9 +14,9 @@ namespace Pendulum.Controllers
 
         public void Initialize()
         {
-            // StartMoving();
         }
 
         public void StartMoving() => _pendulumModel.StartMoving();
+        public void StopMoving() => _pendulumModel.StopMoving();
     }
 }

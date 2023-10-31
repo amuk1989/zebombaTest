@@ -27,7 +27,7 @@ namespace GameStage.Controllers
 
         public void Initialize()
         {
-            // NextStage();
+            NextStage();
         }
 
         public void NextStage()

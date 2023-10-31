@@ -41,6 +41,11 @@ namespace Pendulum.Models
                 });
         }
 
+        public void StopMoving()
+        {
+            _movingFlow?.Dispose();
+        }
+
         public void Dispose()
         {
             _movingFlow?.Dispose();
