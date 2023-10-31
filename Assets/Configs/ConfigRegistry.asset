@@ -16,3 +16,4 @@ MonoBehaviour:
   _circleConfig: {fileID: 11400000, guid: 07d5f632626d7ce4ebeeba19dcbfe8af, type: 2}
   _gameStageConfig: {fileID: 11400000, guid: fcfed52628873d048a308676a79f37db, type: 2}
   _flasksConfig: {fileID: 11400000, guid: 727eabdc49318854186be98c22c0f30f, type: 2}
+  _gameRuleConfig: {fileID: 11400000, guid: ab3cc0cedd7acaf47a4f700ba98fd3c8, type: 2}

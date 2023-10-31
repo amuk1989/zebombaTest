@@ -1,20 +1,15 @@
 ﻿using System;
 using Input.Interfaces;
-using Pendulum.Configs;
-using Pendulum.Models;
-using Pendulum.Repositories;
-using Pendulum.Views;
 using UniRx;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
-namespace Pendulum.Controllers
+namespace Circle
 {
     public class CircleController: IInitializable
     {
         private readonly IInputProvider _inputProvider;
-        private readonly CircleModel.Factory _circleFactory;
         private readonly CircleRepository _circleRepository;
         private readonly CircleConfig _circleConfig;
 
@@ -22,11 +17,10 @@ namespace Pendulum.Controllers
         private IDisposable _inputFlow;
         private ReactiveProperty<Color> _nextColor = new();
 
-        public CircleController(IInputProvider inputProvider, CircleModel.Factory circleFactory, 
+        public CircleController(IInputProvider inputProvider, 
             CircleRepository circleRepository, CircleConfig config)
         {
             _inputProvider = inputProvider;
-            _circleFactory = circleFactory;
             _circleRepository = circleRepository;
             _circleConfig = config;
         }

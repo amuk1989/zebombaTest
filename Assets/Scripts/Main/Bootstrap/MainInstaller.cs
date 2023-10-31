@@ -1,4 +1,5 @@
-﻿using Environment;
+﻿using Circle;
+using Environment;
 using Flasks;
 using GameStage.Bootstrap;
 using Input;
@@ -16,6 +17,8 @@ namespace Main.Bootstrap
             Container.Install<GameStageInstaller>();
             Container.Install<EnvironmentInstaller>();
             Container.Install<FlasksInstaller>();
+            Container.Install<CircleInstaller>();
+            Container.Install<GameRuleInstaller>();
         }
     }
 }

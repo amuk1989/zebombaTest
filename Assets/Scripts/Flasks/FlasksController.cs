@@ -20,9 +20,9 @@ namespace Flasks
             _prefab = _flasksFactory.Create(_worldUtility.BottomCenterPosition);
         }
 
-        public void Despawn()
+        public void DeSpawn()
         {
-            
+            _prefab.Dispose();
         }
     }
 }

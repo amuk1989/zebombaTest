@@ -1,4 +1,5 @@
-﻿using Flasks;
+﻿using Circle;
+using Flasks;
 using GameStage.Interfaces;
 using Pendulum.Controllers;
 
@@ -29,7 +30,7 @@ namespace GameStage.Stages
         {
             _pendulumController.StopMoving();
             _circleController.StopSpawnFlow();
-            _flasksController.Despawn();
+            _flasksController.DeSpawn();
         }
     }
 }

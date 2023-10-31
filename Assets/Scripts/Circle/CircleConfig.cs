@@ -1,7 +1,6 @@
-﻿using Pendulum.Views;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Pendulum.Configs
+namespace Circle
 {
     [CreateAssetMenu(fileName = "CircleConfig", menuName = "Configs/CircleConfig", order = 0)]
     public class CircleConfig : ScriptableObject
