@@ -19,12 +19,22 @@ namespace Input
 
         public void Initialize()
         {
+            StartInputFlow();
+        }
+
+        public void StartInputFlow()
+        {
             _inputFlow = Observable
                 .EveryUpdate()
                 .Subscribe(_ =>
                 {
                     if (UnityEngine.Input.GetMouseButtonDown(0)) _onTapped.Execute(UnityEngine.Input.mousePosition);
                 });
+        }
+
+        public void StopInputFlow()
+        {
+            _inputFlow?.Dispose();
         }
 
         public IObservable<Vector3> ClickAsObservable()

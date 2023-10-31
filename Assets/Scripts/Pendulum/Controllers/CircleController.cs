@@ -35,11 +35,13 @@ namespace Pendulum.Controllers
 
         public void Initialize()
         {
-            StartSpawnFlow();
+            // StartSpawnFlow();
         }
 
         public void StartSpawnFlow()
         {
+            _inputProvider.StartInputFlow();
+            
             _nextColor.Value = _circleConfig.ColorsVariations[Random.Range(0, _circleConfig.ColorsVariations.Length)];
             
             _inputFlow = _inputProvider
@@ -56,8 +58,9 @@ namespace Pendulum.Controllers
         public void StopSpawnFlow()
         {
             _inputFlow?.Dispose();
+            _inputProvider.StopInputFlow();
         }
 
-        public void SetSpawnTransform(Transform transform) => _circleSpawnTransform = transform;
+        internal void SetSpawnTransform(Transform transform) => _circleSpawnTransform = transform;
     }
 }
