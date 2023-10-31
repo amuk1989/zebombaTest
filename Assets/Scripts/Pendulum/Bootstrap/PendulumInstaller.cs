@@ -3,6 +3,7 @@ using Pendulum.Factories;
 using Pendulum.Models;
 using Pendulum.Repositories;
 using Pendulum.Views;
+using UnityEngine;
 using Zenject;
 
 namespace Pendulum.Bootstrap
@@ -30,13 +31,18 @@ namespace Pendulum.Bootstrap
                 .BindInterfacesAndSelfTo<CircleRepository>()
                 .AsSingle()
                 .NonLazy();
+            
+            Container
+                .BindInterfacesAndSelfTo<CircleController>()
+                .AsSingle()
+                .NonLazy();
 
             Container
                 .BindFactory<CircleModel, CircleView, CircleView.Factory>()
                 .FromFactory<CircleViewFactory>();
 
             Container
-                .BindFactory<CircleModel, CircleModel.Factory>();
+                .BindFactory<Vector3, CircleModel, CircleModel.Factory>();
         }
     }
 }

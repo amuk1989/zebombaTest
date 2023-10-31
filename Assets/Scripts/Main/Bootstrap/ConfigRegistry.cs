@@ -11,10 +11,12 @@ namespace Main.Bootstrap
     public class ConfigRegistry : ScriptableObjectInstaller
     {
         [SerializeField] private PendulumConfig _pendulumConfig;
+        [SerializeField] private CircleConfig _circleConfig;
 
         public override void InstallBindings()
         {
             Container.InstallRegistry(_pendulumConfig);
+            Container.InstallRegistry(_circleConfig);
         }
     }
 }

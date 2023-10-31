@@ -23,9 +23,7 @@ namespace Input
                 .EveryUpdate()
                 .Subscribe(_ =>
                 {
-                    var touch = UnityEngine.Input.GetTouch(0);
-
-                    if (touch.phase == TouchPhase.Began) _onTapped.Execute(touch.position);
+                    if (UnityEngine.Input.GetMouseButtonDown(0)) _onTapped.Execute(UnityEngine.Input.mousePosition);
                 });
         }
 
