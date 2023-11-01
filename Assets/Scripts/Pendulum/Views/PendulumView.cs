@@ -30,16 +30,16 @@ namespace Pendulum.Views
         private void Start()
         {
             _circleController.SetSpawnTransform(_circlePosition);
+            
+            _model
+                .RotationAsObservable()
+                .Subscribe(value => transform.rotation = value)
+                .AddTo(this);
 
             _circleController
                 .NextColorAsRx()
                 .Subscribe(color => _circleRenderer.color = color)
                 .AddTo(this);
-        }
-
-        private void Update()
-        {
-            transform.rotation = _model.Rotation;
         }
 
         public void Dispose()
