@@ -36,9 +36,9 @@ namespace GameStage.Controllers
         {
             _stageCompleteFlow?.Dispose();
             _currentStage?.Complete();
-            
-            if (_gameStageConfig.GameStageIds.Length <= ++_currentStageIndex) return;
-            
+
+            if (_gameStageConfig.GameStageIds.Length <= ++_currentStageIndex) _currentStageIndex = 0;
+
             var stageId = _gameStageConfig.GameStageIds[_currentStageIndex];
             
             _currentStage = _gameStageFactory.Create(stageId);

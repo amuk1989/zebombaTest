@@ -15,5 +15,5 @@ MonoBehaviour:
   _circlePrefab: {fileID: 6956573116600794505, guid: cd78573a681265a44adf2fcac5f98871, type: 3}
   _colorsVariations:
   - {r: 0.0025007725, g: 1, b: 0, a: 1}
-  - {r: 0, g: 0.14819956, b: 1, a: 1}
-  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 1, g: 0.07060636, b: 0, a: 1}
+  - {r: 0, g: 0.07727146, b: 1, a: 1}

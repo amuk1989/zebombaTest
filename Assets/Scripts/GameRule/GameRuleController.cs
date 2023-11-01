@@ -27,6 +27,8 @@ namespace Circle
             _gameRuleConfig = config;
         }
 
+        public int GamePoints => _gamePoints.Value;
+
         public void Initialize()
         {
             _circleRepository
@@ -51,6 +53,13 @@ namespace Circle
         public void Dispose()
         {
             _compositeDisposable?.Dispose();
+        }
+
+        public void Reset()
+        {
+            _gamePoints.Value = 0;
+            _fellCircles.Clear();
+            _circlesInMatrix.Clear();
         }
 
         public IObservable<Unit> GameOverAsRx() => _gameOver.AsObservable();
@@ -86,9 +95,11 @@ namespace Circle
         {
             circles = GetRawId(position);
             if (circles.Count < _gameRuleConfig.CirclesCountInLine || !IsSameColor(circles)) circles.Clear();
+
+            var circlesInColumn = GetColumnId(position);
+            if (circlesInColumn.Count < _gameRuleConfig.CirclesCountInLine || !IsSameColor(circlesInColumn)) circlesInColumn.Clear();
             
-            circles.AddRange(GetColumnId(position));
-            if (circles.Count < _gameRuleConfig.CirclesCountInLine || !IsSameColor(circles)) circles.Clear();
+            circles.AddRange(circlesInColumn);
 
             return circles.Count >= _gameRuleConfig.CirclesCountInLine;
         }
