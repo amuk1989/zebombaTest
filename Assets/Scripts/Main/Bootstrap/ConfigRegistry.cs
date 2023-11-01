@@ -1,4 +1,5 @@
 ﻿using Circle;
+using Effects;
 using Flasks;
 using GameStage.Bootstrap;
 using GameStage.Controllers;
@@ -19,6 +20,7 @@ namespace Main.Bootstrap
         [SerializeField] private GameStageConfig _gameStageConfig;
         [SerializeField] private FlasksConfig _flasksConfig;
         [SerializeField] private GameRuleConfig _gameRuleConfig;
+        [SerializeField] private EffectsConfig _effectsConfig;
 
         public override void InstallBindings()
         {
@@ -27,6 +29,7 @@ namespace Main.Bootstrap
             Container.InstallRegistry(_gameStageConfig);
             Container.InstallRegistry(_flasksConfig);
             Container.InstallRegistry(_gameRuleConfig);
+            Container.InstallRegistry(_effectsConfig);
         }
     }
 }

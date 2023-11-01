@@ -1,4 +1,5 @@
 ﻿using Circle;
+using Effects;
 using Environment;
 using Flasks;
 using GameStage.Bootstrap;
@@ -19,6 +20,7 @@ namespace Main.Bootstrap
             Container.Install<FlasksInstaller>();
             Container.Install<CircleInstaller>();
             Container.Install<GameRuleInstaller>();
+            Container.Install<EffectsInstaller>();
         }
     }
 }
