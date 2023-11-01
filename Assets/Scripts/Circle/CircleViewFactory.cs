@@ -1,10 +1,6 @@
-﻿using Pendulum.Configs;
-using Pendulum.Models;
-using Pendulum.Views;
-using UnityEngine;
-using Zenject;
+﻿using Zenject;
 
-namespace Pendulum.Factories
+namespace Circle
 {
     public class CircleViewFactory: IFactory<CircleModel, CircleView>
     {

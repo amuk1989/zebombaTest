@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aecf6cfcb5245548bfb20a1b43ec3ca, type: 3}
   m_Name: GameStageConfig
   m_EditorClassIdentifier: 
-  _gameStageIds: 02000000
+  _gameStageIds: 0100000002000000

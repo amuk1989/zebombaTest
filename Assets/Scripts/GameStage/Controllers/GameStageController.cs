@@ -10,12 +10,14 @@ namespace GameStage.Controllers
     internal class GameStageController: IGameStageService, IInitializable
     {
         private IGameStage _currentStage;
-        private int _currentStageIndex;
+        private int _currentStageIndex = -1;
 
         private readonly GameStageConfig _gameStageConfig;
         private readonly GameStageFactory _gameStageFactory;
 
         private readonly ReactiveProperty<GameStageId> _currentStageId = new ();
+
+        private IDisposable _stageCompleteFlow;
 
         public GameStageController(GameStageConfig gameStageConfig, GameStageFactory gameStageFactory)
         {
@@ -32,11 +34,20 @@ namespace GameStage.Controllers
 
         public void NextStage()
         {
+            _stageCompleteFlow?.Dispose();
             _currentStage?.Complete();
-            var stageId = _gameStageConfig.GameStageIds[_currentStageIndex++];
+            
+            if (_gameStageConfig.GameStageIds.Length <= ++_currentStageIndex) return;
+            
+            var stageId = _gameStageConfig.GameStageIds[_currentStageIndex];
+            
             _currentStage = _gameStageFactory.Create(stageId);
             _currentStage.Execute();
             _currentStageId.Value = stageId;
+
+            _stageCompleteFlow = _currentStage
+                .StageCompletedAsRx()
+                .Subscribe(_ => NextStage());
         }
     }
 }

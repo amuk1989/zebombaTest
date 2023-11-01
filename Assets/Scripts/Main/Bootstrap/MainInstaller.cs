@@ -1,4 +1,8 @@
-﻿using GameStage.Bootstrap;
+﻿using Circle;
+using Effects;
+using Environment;
+using Flasks;
+using GameStage.Bootstrap;
 using Input;
 using Pendulum.Bootstrap;
 using Zenject;
@@ -12,6 +16,11 @@ namespace Main.Bootstrap
             Container.Install<PendulumInstaller>();
             Container.Install<InputInstaller>();
             Container.Install<GameStageInstaller>();
+            Container.Install<EnvironmentInstaller>();
+            Container.Install<FlasksInstaller>();
+            Container.Install<CircleInstaller>();
+            Container.Install<GameRuleInstaller>();
+            Container.Install<EffectsInstaller>();
         }
     }
 }

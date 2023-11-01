@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Pendulum.Views;
 using UniRx;
 using Zenject;
 
-namespace Pendulum.Repositories
+namespace Circle
 {
 	public class CircleViewsRepository: IInitializable, IDisposable
 	{
