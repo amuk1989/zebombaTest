@@ -49,6 +49,7 @@ namespace UI.Rules
                     if (_changeAnimation != null) _changeAnimation.Dispose();
                     break;
                 case GameStageId.Finish:
+                    _uiPrefabFactory.Create("Prefabs/UI/FinishScreen", _uiComponent.Transform);
                     break;
                 default:
                     break;
