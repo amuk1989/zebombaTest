@@ -5,6 +5,7 @@ using Flasks;
 using GameStage.Bootstrap;
 using Input;
 using Pendulum.Bootstrap;
+using UI.Bootstrap;
 using Zenject;
 
 namespace Main.Bootstrap
@@ -21,6 +22,7 @@ namespace Main.Bootstrap
             Container.Install<CircleInstaller>();
             Container.Install<GameRuleInstaller>();
             Container.Install<EffectsInstaller>();
+            Container.Install<UIBootstrap>();
         }
     }
 }
