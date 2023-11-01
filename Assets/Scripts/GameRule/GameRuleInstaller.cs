@@ -1,4 +1,5 @@
 ﻿using Effects;
+using GameRule;
 using Zenject;
 
 namespace Circle
@@ -11,10 +12,14 @@ namespace Circle
                 .BindInterfacesAndSelfTo<GameRuleController>()
                 .AsSingle()
                 .NonLazy();
-            
-            
+
             Container
                 .BindInterfacesTo<EffectRule>()
+                .AsSingle()
+                .NonLazy();
+            
+            Container
+                .BindInterfacesTo<EnvironmentRule>()
                 .AsSingle()
                 .NonLazy();
         }

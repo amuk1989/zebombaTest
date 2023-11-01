@@ -34,6 +34,16 @@ namespace Circle
             _models[id].Destroy();
             _models.Remove(id);
         }
+
+        public void Clear()
+        {
+            foreach (var model in _models)
+            {
+                model.Value.Destroy();
+            }
+            
+            _models.Clear();
+        }
     }
 }
 

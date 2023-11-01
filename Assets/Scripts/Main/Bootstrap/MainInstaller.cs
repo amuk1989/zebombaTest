@@ -1,4 +1,5 @@
-﻿using Circle;
+﻿using AnimationDemo;
+using Circle;
 using Effects;
 using Environment;
 using Flasks;
@@ -23,6 +24,7 @@ namespace Main.Bootstrap
             Container.Install<GameRuleInstaller>();
             Container.Install<EffectsInstaller>();
             Container.Install<UIBootstrap>();
+            Container.Install<AnimationDemoInstaller>();
         }
     }
 }
