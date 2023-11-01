@@ -11,15 +11,13 @@ namespace GameStage.Stages
     {
         private readonly PendulumController _pendulumController;
         private readonly CircleController _circleController;
-        private readonly FlasksController _flasksController;
         private readonly GameRuleController _gameRuleController;
 
         public GamingStage(PendulumController pendulumController, CircleController circleController, 
-            FlasksController flasksController, GameRuleController controller)
+            GameRuleController controller)
         {
             _pendulumController = pendulumController;
             _circleController = circleController;
-            _flasksController = flasksController;
             _gameRuleController = controller;
         }
 
@@ -32,14 +30,12 @@ namespace GameStage.Stages
         {
             _pendulumController.StartMoving();
             _circleController.StartSpawnFlow();
-            _flasksController.Spawn();
         }
 
         public void Complete()
         {
             _pendulumController.StopMoving();
             _circleController.StopSpawnFlow();
-            _flasksController.DeSpawn();
         }
     }
 }

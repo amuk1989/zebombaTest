@@ -4,6 +4,7 @@
     {
         None,
         StartMenu,
-        Game
+        Game,
+        Finish
     }
 }

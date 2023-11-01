@@ -17,11 +17,6 @@ namespace Flasks
             Container
                 .BindFactory<Vector3, FlasksView, FlasksView.Factory>()
                 .FromComponentInNewPrefab(_flasksConfig.Prefab);
-
-            Container
-                .BindInterfacesAndSelfTo<FlasksController>()
-                .AsSingle()
-                .NonLazy();
         }
     }
 }

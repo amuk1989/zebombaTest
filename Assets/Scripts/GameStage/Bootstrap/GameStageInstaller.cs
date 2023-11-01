@@ -22,6 +22,12 @@ namespace GameStage.Bootstrap
                 .WithId(GameStageId.Game)
                 .To<GamingStage>()
                 .AsSingle();
+            
+            Container
+                .Bind<IGameStage>()
+                .WithId(GameStageId.Finish)
+                .To<FinishStage>()
+                .AsSingle();
 
             Container
                 .BindInterfacesTo<GameStageController>()

@@ -8,8 +8,10 @@ using Zenject;
 
 namespace Pendulum.Views
 {
-    public class PendulumView : MonoBehaviour
+    public class PendulumView : MonoBehaviour, IDisposable
     {
+        public class Factory : PlaceholderFactory<Vector3, PendulumView>{}
+        
         [SerializeField] private Transform _circlePosition;
         [SerializeField] private SpriteRenderer _circleRenderer;
         
@@ -17,10 +19,12 @@ namespace Pendulum.Views
         private CircleController _circleController;
         
         [Inject]
-        private void Construct(PendulumModel model, CircleController controller)
+        private void Construct(Vector3 position, PendulumModel model, CircleController controller)
         {
             _model = model;
             _circleController = controller;
+
+            transform.position = position;
         }
 
         private void Start()
@@ -36,6 +40,11 @@ namespace Pendulum.Views
                 .NextColorAsRx()
                 .Subscribe(color => _circleRenderer.color = color)
                 .AddTo(this);
+        }
+
+        public void Dispose()
+        {
+            Destroy(gameObject);
         }
     }
 }
