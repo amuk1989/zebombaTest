@@ -28,6 +28,7 @@ namespace GameStage.Stages
 
         public void Execute()
         {
+            _gameRuleController.Reset();
             _pendulumController.StartMoving();
             _circleController.StartSpawnFlow();
         }

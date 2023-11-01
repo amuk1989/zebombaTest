@@ -55,6 +55,13 @@ namespace Circle
             _compositeDisposable?.Dispose();
         }
 
+        public void Reset()
+        {
+            _gamePoints.Value = 0;
+            _fellCircles.Clear();
+            _circlesInMatrix.Clear();
+        }
+
         public IObservable<Unit> GameOverAsRx() => _gameOver.AsObservable();
 
         private void Registry(CircleModel model)

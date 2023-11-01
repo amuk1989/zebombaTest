@@ -19,6 +19,8 @@ namespace Pendulum.Models
             _config = config;
         }
 
+        public Quaternion Rotation => _rotation.Value;
+
         public IObservable<Quaternion> RotationAsObservable() => _rotation.AsObservable();
 
         public void StartMoving()
