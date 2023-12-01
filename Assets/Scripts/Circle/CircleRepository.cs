@@ -22,10 +22,11 @@ namespace Circle
         public IObservable<CircleModel> ModelAddedAsRx() => _models.ObserveAdd().Select(x => x.Value).AsObservable();
         public IObservable<CircleModel> ModelRemovedAsRx() => _models.ObserveRemove().Select(x => x.Value).AsObservable();
 
-        public void CreateModel(Vector3 position, Color color)
+        public CircleModel CreateModel(Vector3 position, Color color)
         {
             var model = _circleFactory.Create(_modelId++.ToString(), position, color);
             _models.Add(model.Id, model);
+            return model;
         }
         
         public void DestroyModel(string id)

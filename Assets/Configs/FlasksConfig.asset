@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: FlasksConfig
   m_EditorClassIdentifier: 
   flasksPrefab: {fileID: 3352332219059925718, guid: 4ec6e0701524ed7489c5c3e5d3b081ab, type: 3}
+  _flaskCapacity: 3

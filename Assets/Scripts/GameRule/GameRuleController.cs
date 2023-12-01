@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Flasks.Interfaces;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -20,11 +21,14 @@ namespace Circle
 
         private readonly CircleRepository _circleRepository;
         private readonly GameRuleConfig _gameRuleConfig;
+        private readonly IFlaskService _flaskService;
 
-        public GameRuleController(CircleRepository circleRepository, GameRuleConfig config)
+        public GameRuleController(CircleRepository circleRepository, GameRuleConfig config,
+            IFlaskService flaskService)
         {
             _circleRepository = circleRepository;
             _gameRuleConfig = config;
+            _flaskService = flaskService;
         }
 
         public int GamePoints => _gamePoints.Value;
@@ -35,6 +39,7 @@ namespace Circle
                 .ModelRemovedAsRx()
                 .Subscribe(model =>
                 {
+                    _flaskService.RemoveFlaskContent(model);
                     if (!_circlesInMatrix.Contains(model.Id)) return;
                     _circlesInMatrix.Remove(model.Id);
                 })
@@ -43,10 +48,13 @@ namespace Circle
             _circleRepository
                 .ModelAddedAsRx()
                 .Subscribe(model =>
+                {
                     _fellCircles[model.Id] = model
                         .IsFellAsRx()
                         .Where(x => x)
-                        .Subscribe(x => Registry(model)))
+                        .Subscribe(x => Registry(model))
+                        .AddTo(_compositeDisposable);
+                })
                 .AddTo(_compositeDisposable);
         }
 
@@ -66,6 +74,8 @@ namespace Circle
 
         private void Registry(CircleModel model)
         {
+            _flaskService.AddFlaskContent(model);
+            
             _circlesInMatrix.Add(model.Id);
             
             var isDestroyed = TryDestroyLines(model.Position, out var destroyCount);

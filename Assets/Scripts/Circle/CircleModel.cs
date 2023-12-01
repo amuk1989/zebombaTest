@@ -1,11 +1,12 @@
 ﻿using System;
+using Flasks.Interfaces;
 using UniRx;
 using UnityEngine;
 using Zenject;
 
 namespace Circle
 {
-    public sealed class CircleModel
+    public sealed class CircleModel: IFlaskContent
     {
         public class Factory:PlaceholderFactory<string, Vector3, Color, CircleModel>
         {
@@ -15,17 +16,17 @@ namespace Circle
         private readonly ReactiveProperty<bool> _isFell = new(false);
 
         private Vector3 _position;
-        private readonly Color _color;
 
         public CircleModel(string id, Vector3 position, Color color)
         {
             _position = position;
-            _color = color;
+            Color = color;
             Id = id;
         }
 
         public Vector3 Position => _position;
-        public Color Color => _color;
+        public Color Color { get; }
+
         public string Id { get; private set; }
 
         public IObservable<Unit> OnDestroyedAsRx() => _onDestroyed.AsObservable();
